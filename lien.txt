@@ -1,0 +1,7 @@
+api-transigo.univ-setif.dz
+
+map-transigo.univ-setif.dz
+
+photon.univ-setif.dz
+
+model.univ-setif.dz
