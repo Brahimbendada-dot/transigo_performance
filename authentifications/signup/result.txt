@@ -45,3 +45,54 @@ PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=htt
                                                                                                                                                                                                      
 running (2m00.7s), 00/15 VUs, 1546 complete and 0 interrupted iterations                                                                                                                             
 default ✓ [======================================] 15 VUs  2m0s    
+
+
+
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 20088  25.751477/s
+    checks_succeeded...: 99.67% 20023 out of 20088
+    checks_failed......: 0.32%  65 out of 20088
+
+    ✓ validate status code
+    ✗ validate response body
+      ↳  99% — ✓ 9979 / ✗ 65
+
+    HTTP
+    http_req_duration..............: avg=6.89s min=118.92ms med=7.65s max=9.95s p(90)=8.03s p(95)=8.23s
+      { expected_response:true }...: avg=6.89s min=118.92ms med=7.65s max=9.95s p(90)=8.03s p(95)=8.23s
+    http_req_failed................: 0.00%  0 out of 10044
+    http_reqs......................: 10044  12.875738/s
+
+    EXECUTION
+    iteration_duration.............: avg=6.89s min=126.86ms med=7.65s max=9.95s p(90)=8.03s p(95)=8.23s
+    iterations.....................: 10044  12.875738/s
+    vus............................: 1      min=1          max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 4.0 MB 5.2 kB/s
+    data_sent......................: 3.2 MB 4.1 kB/s
+
+
+
+                                                                                                                                                                                                     
+running (13m00.1s), 000/100 VUs, 10044 complete and 0 interrupted iterations                                                                                                                         
+default ✓ [======================================] 000/100 VUs  13m0s      

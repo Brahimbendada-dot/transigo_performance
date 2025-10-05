@@ -24,8 +24,8 @@ export default function () {
     const body = JSON.stringify({
         firstname: "grafana",
         lastname: "k6",
-        email: `${random}user@example.com`,
-        phone: `055000${random}`,
+        email: `${random}user@k6.com`,
+        phone: `${random}055000`,
         password: "123456789",
         address: "setif",
         roleId: "2"
