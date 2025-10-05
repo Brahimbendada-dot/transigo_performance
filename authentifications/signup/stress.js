@@ -2,38 +2,40 @@ import http from "k6/http";
 import { check } from "k6";
 
 
-
-
-const baseURL=__ENV.baseURL
-
-export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
-}
-
 export let options = {
    stages: [
         { duration: '5m', target: 50 },   // Warm-up
         { duration: '10m', target: 200 },  // Moderate load
         { duration: '20m', target: 500 },  // Heavy load
-        // { duration: '30m', target: 1000 }, // Peak stress
+        { duration: '30m', target: 1000 }, // Peak stress
         { duration: '2m', target: 0 },    // Cooldown
       ],
 };
 
 
+const baseURL = __ENV.baseURL
+
+export const APIs = {
+    signup: `${baseURL}/api/v1/authentification/signup`,
+}
 
 export default function () {
+    const random = Math.floor(Math.random() * 1000000);
     const body = JSON.stringify({
-        phone: "+213699938225",
+        firstname: "grafana",
+        lastname: "k6",
+        email: `${random}user@example.com`,
+        phone: `055000${random}`,
         password: "123456789",
-        phoneToken: "smoke_test_token"
+        address: "setif",
+        roleId: "2"
     });
 
     const headers = {
         "Content-Type": "application/json"
     };
 
-    const response = http.post(APIs.login, body, { headers });
+    const response = http.post(APIs.signup, body, { headers });
 
     check(response, {
         "validate status code": (r) => r.status === 200,

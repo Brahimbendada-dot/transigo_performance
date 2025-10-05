@@ -10,14 +10,11 @@ export const  APIs={
     login:`${baseURL}/api/v1/authentification/login`,    
 }
 
+
+
 export let options = {
-   stages: [
-        { duration: '5m', target: 50 },   // Warm-up
-        { duration: '10m', target: 200 },  // Moderate load
-        { duration: '20m', target: 500 },  // Heavy load
-        // { duration: '30m', target: 1000 }, // Peak stress
-        { duration: '2m', target: 0 },    // Cooldown
-      ],
+    vus: 15,
+    duration: '2m',
 };
 
 

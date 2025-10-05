@@ -1,0 +1,47 @@
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 3092    25.621477/s
+    checks_succeeded...: 100.00% 3092 out of 3092
+    checks_failed......: 0.00%   0 out of 3092
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=1.16s min=414.53ms med=1.16s max=2.31s p(90)=1.2s p(95)=1.3s
+      { expected_response:true }...: avg=1.16s min=414.53ms med=1.16s max=2.31s p(90)=1.2s p(95)=1.3s
+    http_req_failed................: 0.00%  0 out of 1546
+    http_reqs......................: 1546   12.810738/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.16s min=458.3ms  med=1.16s max=2.37s p(90)=1.2s p(95)=1.3s
+    iterations.....................: 1546   12.810738/s
+    vus............................: 15     min=15        max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 620 kB 5.1 kB/s
+    data_sent......................: 488 kB 4.0 kB/s
+
+
+
+                                                                                                                                                                                                     
+running (2m00.7s), 00/15 VUs, 1546 complete and 0 interrupted iterations                                                                                                                             
+default ✓ [======================================] 15 VUs  2m0s    

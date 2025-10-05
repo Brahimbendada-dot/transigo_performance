@@ -1,0 +1,47 @@
+PS D:\k6_performance_transigo\authentifications\login> k6 run --env baseURL=http://api-transigo.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h7m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h7m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+TOTAL RESULTS
+
+    checks_total.......: 115374 28.493311/s
+    checks_succeeded...: 85.13% 98226 out of 115374
+    checks_failed......: 14.86% 17148 out of 115374
+
+    ✗ validate status code
+      ↳  85% — ✓ 49113 / ✗ 8574
+    ✗ validate response body
+      ↳  85% — ✓ 49113 / ✗ 8574
+
+    HTTP
+    http_req_duration..............: avg=33.11s min=117.29ms med=32.96s max=1m0s   p(90)=59.95s p(95)=59.96s
+      { expected_response:true }...: avg=28.9s  min=117.29ms med=28.42s max=59.99s p(90)=53.4s  p(95)=56.8s
+    http_req_failed................: 14.86% 8574 out of 57687
+    http_reqs......................: 57687  14.246656/s
+
+    EXECUTION
+    iteration_duration.............: avg=33.12s min=121.33ms med=32.97s max=1m0s   p(90)=1m0s   p(95)=1m0s
+    iterations.....................: 57687  14.246656/s
+    vus............................: 1      min=1             max=1000
+    vus_max........................: 1000   min=1000          max=1000
+
+    NETWORK
+    data_received..................: 72 MB  18 kB/s
+    data_sent......................: 14 MB  3.5 kB/s
+
+
+
+                                                                                                                                                                                                     
+running (1h07m29.2s), 0000/1000 VUs, 57687 complete and 460 interrupted iterations                                                                                                                   
+default ✓ [======================================] 0000/1000 VUs  1h7m0s 
