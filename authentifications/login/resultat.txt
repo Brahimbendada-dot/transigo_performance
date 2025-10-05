@@ -1,3 +1,230 @@
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/authentifications/login]
+└─$ k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 2114    17.382116/s
+    checks_succeeded...: 100.00% 2114 out of 2114
+    checks_failed......: 0.00%   0 out of 2114
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=1.71s min=201.67ms med=1.63s max=3.55s p(90)=2.39s p(95)=2.6s 
+      { expected_response:true }...: avg=1.71s min=201.67ms med=1.63s max=3.55s p(90)=2.39s p(95)=2.6s 
+    http_req_failed................: 0.00%  0 out of 1057
+    http_reqs......................: 1057   8.691058/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.71s min=325.97ms med=1.63s max=3.55s p(90)=2.39s p(95)=2.61s
+    iterations.....................: 1057   8.691058/s
+    vus............................: 11     min=11        max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 2.7 MB 22 kB/s
+    data_sent......................: 259 kB 2.1 kB/s
+
+──(sysadmin㉿kali)-[~/Downloads/transigo_performance/authentifications/login]
+─$ k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 13528   17.341401/s
+    checks_succeeded...: 100.00% 13528 out of 13528
+    checks_failed......: 0.00%   0 out of 13528
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=10.25s min=206.9ms  med=11.05s max=21.84s p(90)=13.32s p(95)=15.2s 
+      { expected_response:true }...: avg=10.25s min=206.9ms  med=11.05s max=21.84s p(90)=13.32s p(95)=15.2s 
+    http_req_failed................: 0.00%  0 out of 6764
+    http_reqs......................: 6764   8.6707/s
+
+    EXECUTION
+    iteration_duration.............: avg=10.26s min=207.73ms med=11.05s max=21.85s p(90)=13.32s p(95)=15.23s
+    iterations.....................: 6764   8.6707/s
+    vus............................: 1      min=1         max=100
+    vus_max........................: 100    min=100       max=100
+
+    NETWORK
+    data_received..................: 17 MB  22 kB/s
+    data_sent......................: 1.7 MB 2.1 kB/s
+
+
+
+──(sysadmin㉿kali)-[~/Downloads/transigo_performance/authentifications/login]
+└─$ k6 run --env baseURL=http://api-transigo.univ-setif.dz average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+WARN[0077] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0077] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0098] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0098] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0103] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0103] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0108] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0108] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0115] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0115] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0554] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0554] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0668] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0668] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0735] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0735] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0735] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+WARN[0735] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+WARN[0735] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0735] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0735] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0735] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0735] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0735] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0740] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0740] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0762] Request Failed                                error="Post \"http://api-transigo.univ-setif.dz/api/v1/authentification/login\": EOF"
+ERRO[0762] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at validate response body (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:40:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/authentifications/login/average_load.js:38:10(34))  executor=ramping-vus scenario=default source=stacktrace
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 21886  28.054387/s
+    checks_succeeded...: 99.87% 21858 out of 21886
+    checks_failed......: 0.12%  28 out of 21886
+
+    ✗ validate status code
+      ↳  99% — ✓ 10929 / ✗ 14
+    ✗ validate response body
+      ↳  99% — ✓ 10929 / ✗ 14
+
+    HTTP
+    http_req_duration..............: avg=6.32s min=17.14ms  med=6.96s max=8.96s p(90)=7.6s  p(95)=7.96s
+      { expected_response:true }...: avg=6.33s min=152.38ms med=6.97s max=8.96s p(90)=7.61s p(95)=7.96s
+    http_req_failed................: 0.12%  14 out of 10943
+    http_reqs......................: 10943  14.027193/s
+
+    EXECUTION
+    iteration_duration.............: avg=6.32s min=18.68ms  med=6.97s max=8.96s p(90)=7.61s p(95)=7.97s
+    iterations.....................: 10943  14.027193/s
+    vus............................: 1      min=1           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 27 MB  35 kB/s
+    data_sent......................: 2.7 MB 3.4 kB/s
+
+
+
+
+running (13m00.1s), 000/100 VUs, 10943 complete and 0 interrupted iterations
+default ✓ [======================================] 000/100 VUs  13m0s
+
+
+running (2m01.6s), 00/15 VUs, 1057 complete and 0 interrupted iterations
+default ✓ [======================================] 15 VUs  2m0s
+
 PS D:\k6_performance_transigo\authentifications\login> k6 run --env baseURL=http://api-transigo.transigodz.com stress.js
 
          /\      Grafana   /‾‾/  
