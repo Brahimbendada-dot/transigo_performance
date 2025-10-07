@@ -47,7 +47,106 @@ running (2m00.7s), 00/15 VUs, 1546 complete and 0 interrupted iterations
 default ✓ [======================================] 15 VUs  2m0s    
 
 
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js 
 
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 3034    25.205965/s
+    checks_succeeded...: 100.00% 3034 out of 3034
+    checks_failed......: 0.00%   0 out of 3034
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=1.18s min=492.97ms med=1.17s max=2.27s p(90)=1.33s p(95)=1.4s
+      { expected_response:true }...: avg=1.18s min=492.97ms med=1.17s max=2.27s p(90)=1.33s p(95)=1.4s
+    http_req_failed................: 0.00%  0 out of 1517
+    http_reqs......................: 1517   12.602982/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.18s min=492.97ms med=1.17s max=2.33s p(90)=1.33s p(95)=1.4s
+    iterations.....................: 1517   12.602982/s
+    vus............................: 15     min=15        max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 608 kB 5.1 kB/s
+    data_sent......................: 479 kB 4.0 kB/s
+                                                                                                                                                                                                 
+running (2m00.4s), 00/15 VUs, 1517 complete and 0 interrupted iterations
+                   
+
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+WARN[0033] Request Failed                                error="Post \"http://api-transigo.transigodz.com/api/v1/authentification/signup\": EOF"
+ERRO[0033] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response                                                          
+running at reflect.methodValueCall (native)                                                                                                                                                      
+default at validate response body (file:///D:/k6_performance_transigo/authentifications/signup/smoke.js:35:47(3))                                                                                
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///D:/k6_performance_transigo/authentifications/signup/smoke.js:33:10(57))  executor=constant-vus scenario=default source=stacktrace
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 2900   24.037003/s
+    checks_succeeded...: 99.86% 2896 out of 2900
+    checks_failed......: 0.13%  4 out of 2900
+
+    ✗ validate status code
+      ↳  99% — ✓ 1449 / ✗ 1
+    ✗ validate response body
+      ↳  99% — ✓ 1447 / ✗ 3
+
+    HTTP
+    http_req_duration..............: avg=1.23s min=175.9ms med=1.19s max=2.45s p(90)=1.53s p(95)=1.73s
+      { expected_response:true }...: avg=1.24s min=175.9ms med=1.19s max=2.45s p(90)=1.53s p(95)=1.73s
+    http_req_failed................: 0.06%  1 out of 1450
+    http_reqs......................: 1450   12.018501/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.24s min=175.9ms med=1.2s  max=2.5s  p(90)=1.54s p(95)=1.73s
+    iterations.....................: 1450   12.018501/s
+    vus............................: 15     min=15        max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 589 kB 4.9 kB/s
+    data_sent......................: 458 kB 3.8 kB/s
+
+
+
+
+running (2m00.6s), 00/15 VUs, 1450 complete and 0 interrupted iterations
+default ✓ [======================================] 15 VUs  2m0s
 PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
 
          /\      Grafana   /‾‾/  
@@ -96,3 +195,197 @@ PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=htt
                                                                                                                                                                                                      
 running (13m00.1s), 000/100 VUs, 10044 complete and 0 interrupted iterations                                                                                                                         
 default ✓ [======================================] 000/100 VUs  13m0s      
+
+
+
+
+
+
+D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 19748  25.315395/s
+    checks_succeeded...: 99.49% 19649 out of 19748
+    checks_failed......: 0.50%  99 out of 19748
+
+    ✓ validate status code
+    ✗ validate response body
+      ↳  98% — ✓ 9775 / ✗ 99
+
+    HTTP
+    http_req_duration..............: avg=7.01s min=128.83ms med=7.05s max=16.53s p(90)=10.68s p(95)=12.65s
+      { expected_response:true }...: avg=7.01s min=128.83ms med=7.05s max=16.53s p(90)=10.68s p(95)=12.65s
+    http_req_failed................: 0.00%  0 out of 9874
+    http_reqs......................: 9874   12.657698/s
+
+    EXECUTION
+    iteration_duration.............: avg=7.01s min=128.83ms med=7.05s max=16.53s p(90)=10.69s p(95)=12.65s
+    iterations.....................: 9874   12.657698/s
+    vus............................: 1      min=1         max=100
+    vus_max........................: 100    min=100       max=100
+
+    NETWORK
+    data_received..................: 4.0 MB 5.1 kB/s
+    data_sent......................: 3.1 MB 4.0 kB/s
+
+
+
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 20116  25.788026/s
+    checks_succeeded...: 99.07% 19930 out of 20116
+    checks_failed......: 0.92%  186 out of 20116
+
+    ✗ validate status code
+      ↳  99% — ✓ 10057 / ✗ 1
+    ✗ validate response body
+      ↳  98% — ✓ 9873 / ✗ 185
+
+    HTTP
+    http_req_duration..............: avg=6.88s min=112.78ms med=7.71s max=9.59s p(90)=8.04s p(95)=8.17s
+      { expected_response:true }...: avg=6.88s min=112.78ms med=7.71s max=9.59s p(90)=8.04s p(95)=8.17s
+    http_req_failed................: 0.00%  1 out of 10058
+    http_reqs......................: 10058  12.894013/s
+
+    EXECUTION
+    iteration_duration.............: avg=6.88s min=112.78ms med=7.71s max=9.59s p(90)=8.05s p(95)=8.17s
+    iterations.....................: 10058  12.894013/s
+    vus............................: 1      min=1          max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 4.0 MB 5.2 kB/s
+    data_sent......................: 3.2 MB 4.1 kB/s
+
+
+
+D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h7m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h7m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 110288 27.242091/s
+    checks_succeeded...: 85.31% 94090 out of 110288
+    checks_failed......: 14.68% 16198 out of 110288
+
+    ✗ validate status code
+      ↳  86% — ✓ 47636 / ✗ 7508
+    ✗ validate response body
+      ↳  84% — ✓ 46454 / ✗ 8690
+
+    HTTP
+    http_req_duration..............: avg=34.73s min=109.96ms med=37.71s max=1m0s   p(90)=59.95s p(95)=59.96s
+      { expected_response:true }...: avg=30.78s min=109.96ms med=31.83s max=59.99s p(90)=53.99s p(95)=56.42s
+    http_req_failed................: 13.61% 7508 out of 55144
+    http_reqs......................: 55144  13.621046/s
+
+    EXECUTION
+    iteration_duration.............: avg=34.74s min=109.96ms med=37.71s max=1m0s   p(90)=1m0s   p(95)=1m0s
+    iterations.....................: 55144  13.621046/s
+    vus............................: 1      min=1             max=1000
+    vus_max........................: 1000   min=1000          max=1000
+
+    NETWORK
+    data_received..................: 19 MB  4.7 kB/s
+    data_sent......................: 17 MB  4.3 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (1h07m28.4s), 0000/1000 VUs, 55144 complete and 274 interrupted iterations                                                                                                               
+default ✓ [======================================] 0000/1000 VUs  1h7m0s               
+
+
+
+
+
+
+
+
+
+PS D:\k6_performance_transigo\authentifications\signup> k6 run --env baseURL=http://api-transigo.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h7m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h7m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 106382 26.299016/s
+    checks_succeeded...: 83.47% 88806 out of 106382
+    checks_failed......: 16.52% 17576 out of 106382
+
+    ✗ validate status code
+      ↳  84% — ✓ 44935 / ✗ 8256
+    ✗ validate response body
+      ↳  82% — ✓ 43871 / ✗ 9320
+
+    HTTP
+    http_req_duration..............: avg=35.99s min=114.87ms med=38.68s max=1m0s   p(90)=59.95s p(95)=59.96s
+      { expected_response:true }...: avg=31.6s  min=114.87ms med=31.59s max=59.99s p(90)=55.84s p(95)=57.96s
+    http_req_failed................: 15.52% 8256 out of 53191
+    http_reqs......................: 53191  13.149508/s
+
+    EXECUTION
+    iteration_duration.............: avg=36s    min=114.87ms med=38.68s max=1m0s   p(90)=1m0s   p(95)=1m0s
+    iterations.....................: 53191  13.149508/s
+    vus............................: 1      min=1             max=1000
+    vus_max........................: 1000   min=1000          max=1000
+
+    NETWORK
+    data_received..................: 18 MB  4.5 kB/s
+    data_sent......................: 17 MB  4.1 kB/s
+

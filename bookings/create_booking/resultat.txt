@@ -1,0 +1,137 @@
+PS D:\k6_performance_transigo\bookings\create_booking> k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 726     5.920736/s
+    checks_succeeded...: 100.00% 726 out of 726
+    checks_failed......: 0.00%   0 out of 726
+
+    ✓ status is 201
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=5.01s min=1.63s med=4.62s max=12.64s p(90)=7.8s  p(95)=8.67s
+      { expected_response:true }...: avg=5.01s min=1.63s med=4.62s max=12.64s p(90)=7.8s  p(95)=8.67s
+    http_req_failed................: 0.00%  0 out of 363
+    http_reqs......................: 363    2.960368/s
+
+    EXECUTION
+    iteration_duration.............: avg=5.02s min=1.68s med=4.62s max=12.64s p(90)=7.85s p(95)=8.71s
+    iterations.....................: 363    2.960368/s
+    vus............................: 5      min=5        max=15
+    vus_max........................: 15     min=15       max=15
+
+    NETWORK
+    data_received..................: 428 kB 3.5 kB/s
+    data_sent......................: 241 MB 2.0 MB/s
+
+
+
+                                                                                                                                                                                                 
+running (2m02.6s), 00/15 VUs, 363 complete and 0 interrupted iterations                                                                                                                          
+default ✓ [======================================] 15 VUs  2m0s                
+
+
+
+
+
+
+PS D:\k6_performance_transigo\bookings\create_booking> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+ █ TOTAL RESULTS
+
+    checks_total.......: 5108   6.546023/s
+    checks_succeeded...: 92.67% 4734 out of 5108
+    checks_failed......: 7.32%  374 out of 5108
+
+    ✗ status is 201
+      ↳  92% — ✓ 2367 / ✗ 187
+    ✗ response status is success
+      ↳  92% — ✓ 2367 / ✗ 187
+
+    HTTP
+    http_req_duration..............: avg=25.26s min=0s       med=25.36s max=59.96s p(90)=42.17s p(95)=47.52s
+      { expected_response:true }...: avg=26.66s min=338.34ms med=26.14s max=59.34s p(90)=42.09s p(95)=46.93s
+    http_req_failed................: 7.32%  187 out of 2554
+    http_reqs......................: 2554   3.273012/s
+
+    EXECUTION
+    iteration_duration.............: avg=27.4s  min=13.41ms  med=26.81s max=1m0s   p(90)=43.26s p(95)=49.08s
+    iterations.....................: 2554   3.273012/s
+    vus............................: 1      min=1           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 2.8 MB 3.6 kB/s
+    data_sent......................: 1.7 GB 2.1 MB/s
+
+
+PS D:\k6_performance_transigo\bookings\create_booking> k6 run --env baseURL=http://api-transigo.univ-setif.dz average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 5498   7.046183/s
+    checks_succeeded...: 81.30% 4470 out of 5498
+    checks_failed......: 18.69% 1028 out of 5498
+
+    ✗ status is 201
+      ↳  81% — ✓ 2235 / ✗ 514
+    ✗ response status is success
+      ↳  81% — ✓ 2235 / ✗ 514
+
+    HTTP
+    http_req_duration..............: avg=19.35s min=0s      med=15.48s max=1m0s   p(90)=45.99s p(95)=52.89s
+      { expected_response:true }...: avg=22.14s min=29.61ms med=19.04s max=59.74s p(90)=45.58s p(95)=50.94s
+    http_req_failed................: 18.69% 514 out of 2749
+    http_reqs......................: 2749   3.523091/s
+
+    EXECUTION
+    iteration_duration.............: avg=25.4s  min=12.39ms med=21.43s max=1m0s   p(90)=56.79s p(95)=1m0s
+    iterations.....................: 2749   3.523091/s
+    vus............................: 2      min=1           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 2.4 MB 3.1 kB/s
+    data_sent......................: 1.7 GB 2.2 MB/s
