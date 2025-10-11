@@ -11,8 +11,6 @@ export let options = {
     ],
 };
 
-
-
 const baseURL = __ENV.baseURL
 
 export const APIs = {
@@ -20,7 +18,7 @@ export const APIs = {
 }
 
 export default function () {
-    const random = Math.floor(Math.random() * 1000000);
+    const random = Math.floor(Math.random() * 1000000000);
     const body = JSON.stringify({
         firstname: "grafana",
         lastname: "k6",
@@ -38,7 +36,7 @@ export default function () {
     const response = http.post(APIs.signup, body, { headers });
 
     check(response, {
-        "validate status code": (r) => r.status === 200,
+        "validate status code": (r) => r.status === 201,
         "validate response body": (r) => r.json("status") === "success"
     });
 }

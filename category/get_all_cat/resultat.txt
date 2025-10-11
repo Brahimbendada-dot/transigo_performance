@@ -100,11 +100,55 @@ default ✓ [======================================] 000/100 VUs  13m0s
 
 
 
+PS D:\k6_performance_transigo\category\get_all_cat> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 500 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 500 looping VUs for 13m0s over 4 stages (gracefulRampDown: 30s, gracefulStop: 30s)
 
 
 
 
 
+  █ TOTAL RESULTS
+
+    checks_total.......: 2207730 2830.302543/s
+    checks_succeeded...: 100.00% 2207730 out of 2207730
+    checks_failed......: 0.00%   0 out of 2207730
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=154.63ms min=22.89ms med=55.85ms max=1.41s p(90)=423.99ms p(95)=547.39ms
+      { expected_response:true }...: avg=154.63ms min=22.89ms med=55.85ms max=1.41s p(90)=423.99ms p(95)=547.39ms
+    http_req_failed................: 0.00%   0 out of 1103865
+    http_reqs......................: 1103865 1415.151272/s
+
+    EXECUTION
+    iteration_duration.............: avg=154.73ms min=24.67ms med=56.09ms max=1.41s p(90)=424.06ms p(95)=547.46ms
+    iterations.....................: 1103865 1415.151272/s
+    vus............................: 1       min=1            max=499
+    vus_max........................: 500     min=500          max=500
+
+    NETWORK
+    data_received..................: 1.2 GB  1.6 MB/s
+    data_sent......................: 108 MB  139 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (13m00.0s), 000/500 VUs, 1103865 complete and 0 interrupted iterations                                                                                                                   
+default ✓ [======================================] 000/500 VUs  13m0s       
 
 
 

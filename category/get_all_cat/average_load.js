@@ -3,38 +3,24 @@ import { check } from "k6";
 
 
 
-
 const baseURL=__ENV.baseURL
-
-export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
-}
-
-
 
 export let options = {
    stages: [
     { duration: '2m', target: 100 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
-    { duration: '10m', target: 100 }, // stay at 100 users for 30 minutes
+    { duration: '5m', target: 200 }, // stay at 100 users for 30 minutes
+    { duration: '5m', target: 500 }, // stay at 100 users for 30 minutes
     { duration: '1m', target: 0 }, // ramp-down to 0 users
   ],
 };
 
+export const  APIs={
+    category:`${baseURL}/api/v1/category`,    
+}
 
 
 export default function () {
-    const body = JSON.stringify({
-        email: "ivanovab0824@gmail.com",
-        password: "123456789",
-        phoneToken: "smoke_test_token"
-    });
-
-    const headers = {
-        "Content-Type": "application/json"
-    };
-
-    const response = http.post(APIs.login, body, { headers });
-
+    const response = http.get(APIs.category);
     check(response, {
         "validate status code": (r) => r.status === 200,
         "validate response body": (r) => r.json("status") === "success"

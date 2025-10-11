@@ -230,6 +230,56 @@ running (13m00.0s), 000/100 VUs, 39243 complete and 0 interrupted iterations
 default ✓ [======================================] 000/100 VUs  13m0s       
 
 
+PS D:\k6_performance_transigo\authentifications\login> k6 run --env baseURL=http://api-transigo.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h7m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h7m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 415820 103.436839/s
+    checks_succeeded...: 96.13% 399766 out of 415820
+    checks_failed......: 3.86%  16054 out of 415820
+
+    ✗ validate status code
+      ↳  96% — ✓ 199883 / ✗ 8027
+    ✗ validate response body
+      ↳  96% — ✓ 199883 / ✗ 8027
+
+    HTTP
+    http_req_duration..............: avg=9.23s min=0s      med=410.77ms max=1m0s   p(90)=35.45s p(95)=39.31s
+      { expected_response:true }...: avg=7.67s min=52.55ms med=404.97ms max=59.87s p(90)=34.49s p(95)=36.83s
+    http_req_failed................: 3.86%  8027 out of 207910
+    http_reqs......................: 207910 51.71842/s
+
+    EXECUTION
+    iteration_duration.............: avg=9.23s min=1.02ms  med=411.36ms max=1m0s   p(90)=35.46s p(95)=39.32s
+    iterations.....................: 207910 51.71842/s
+    vus............................: 1      min=1              max=999
+    vus_max........................: 1000   min=1000           max=1000
+
+    NETWORK
+    data_received..................: 296 MB 74 kB/s
+    data_sent......................: 53 MB  13 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (1h07m00.0s), 0000/1000 VUs, 207910 complete and 120 interrupted iterations                                                                                                              
+default ✓ [======================================] 0000/1000 VUs  1h7m0s  
+
+
 ──(sysadmin㉿kali)-[~/Downloads/transigo_performance/authentifications/login]
 └─$ k6 run --env baseURL=http://api-transigo.univ-setif.dz average_load.js
 

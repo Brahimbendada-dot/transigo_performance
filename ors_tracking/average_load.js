@@ -1,9 +1,11 @@
 import http from "k6/http";
 import { check } from "k6";
 
-
-
 const baseURL=__ENV.baseURL
+
+export const  APIs={
+    category:`${baseURL}/ors/v2/directions/driving-car?start=5.4046876,36.1893494&end=-0.628061580628374,35.19405138280957`,    
+}
 
 export let options = {
    stages: [
@@ -13,15 +15,6 @@ export let options = {
   ],
 };
 
-export const  APIs={
-    category:`${baseURL}/api/v1/category`,    
-}
-
-
 export default function () {
-    const response = http.get(APIs.category);
-    check(response, {
-        "validate status code": (r) => r.status === 200,
-        "validate response body": (r) => r.json("status") === "success"
-    });
+    http.get(APIs.category);
 }

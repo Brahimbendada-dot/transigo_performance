@@ -14,8 +14,8 @@ export let options = {
    stages: [
         { duration: '5m', target: 50 },   // Warm-up
         { duration: '10m', target: 200 },  // Moderate load
-        { duration: '20m', target: 500 },  // Heavy load
-        // { duration: '30m', target: 1000 }, // Peak stress
+        { duration: '20m', target: 500 },   // Heavy load
+        { duration: '30m', target: 1000 }, // Peak stress
         { duration: '2m', target: 0 },    // Cooldown
       ],
 };
@@ -24,7 +24,7 @@ export let options = {
 
 export default function () {
     const body = JSON.stringify({
-        phone: "+213699938225",
+        email: "ivanovab0824@gmail.com",
         password: "123456789",
         phoneToken: "smoke_test_token"
     });

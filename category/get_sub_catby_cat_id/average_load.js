@@ -3,14 +3,7 @@ import { check } from "k6";
 
 
 
-
 const baseURL=__ENV.baseURL
-
-export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
-}
-
-
 
 export let options = {
    stages: [
@@ -20,21 +13,13 @@ export let options = {
   ],
 };
 
+export const  APIs={
+    category:`${baseURL}/api/v1/subcategory/categoryId/4`,    
+}
 
 
 export default function () {
-    const body = JSON.stringify({
-        email: "ivanovab0824@gmail.com",
-        password: "123456789",
-        phoneToken: "smoke_test_token"
-    });
-
-    const headers = {
-        "Content-Type": "application/json"
-    };
-
-    const response = http.post(APIs.login, body, { headers });
-
+    const response = http.get(APIs.category);
     check(response, {
         "validate status code": (r) => r.status === 200,
         "validate response body": (r) => r.json("status") === "success"

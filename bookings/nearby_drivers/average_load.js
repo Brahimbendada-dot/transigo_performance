@@ -5,7 +5,7 @@ import { check } from "k6";
 const baseURL = __ENV.baseURL;
 
 export const APIs = {
-  booking: `${baseURL}/api/v1/booking`,
+  booking: `${baseURL}/api/v1/nearbyDrivers`,
 };
 
 

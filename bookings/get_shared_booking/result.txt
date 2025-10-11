@@ -1,0 +1,47 @@
+PS D:\k6_performance_transigo\bookings\get_shared_booking> k6 run --env baseURL=http://model.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 4302    35.613037/s
+    checks_succeeded...: 100.00% 4302 out of 4302
+    checks_failed......: 0.00%   0 out of 4302
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=419.58ms min=42.43ms  med=424.08ms max=867.9ms p(90)=541.83ms p(95)=583.87ms
+      { expected_response:true }...: avg=419.58ms min=42.43ms  med=424.08ms max=867.9ms p(90)=541.83ms p(95)=583.87ms
+    http_req_failed................: 0.00%  0 out of 4302
+    http_reqs......................: 4302   35.613037/s
+
+    EXECUTION
+    iteration_duration.............: avg=839.67ms min=184.18ms med=833.2ms  max=1.46s   p(90)=928.29ms p(95)=966.78ms
+    iterations.....................: 2151   17.806518/s
+    vus............................: 15     min=15        max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 15 MB  123 kB/s
+    data_sent......................: 1.0 MB 8.7 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (2m00.8s), 00/15 VUs, 2151 complete and 0 interrupted iterations                                                                                                                         
+default ✓ [======================================] 15 VUs  2m0s

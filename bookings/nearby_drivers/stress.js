@@ -7,24 +7,24 @@ import { check } from "k6";
 const baseURL=__ENV.baseURL
 
 export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
+    login:`${baseURL}/api/v1/nearbyDrivers`,    
 }
-
-
 
 export let options = {
    stages: [
-    { duration: '2m', target: 100 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
-    { duration: '10m', target: 100 }, // stay at 100 users for 30 minutes
-    { duration: '1m', target: 0 }, // ramp-down to 0 users
-  ],
+        { duration: '5m', target: 50 },   // Warm-up
+        { duration: '10m', target: 200 },  // Moderate load
+        { duration: '20m', target: 500 },  // Heavy load
+        // { duration: '30m', target: 1000 }, // Peak stress
+        { duration: '2m', target: 0 },    // Cooldown
+      ],
 };
 
 
 
 export default function () {
     const body = JSON.stringify({
-        email: "ivanovab0824@gmail.com",
+        phone: "+213699938225",
         password: "123456789",
         phoneToken: "smoke_test_token"
     });

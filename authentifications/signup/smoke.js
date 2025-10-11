@@ -18,7 +18,7 @@ export default function () {
     const body = JSON.stringify({
         firstname: "grafana",
         lastname: "k6",
-        email: `${random}user@example.com`,
+        email: `${random}user@gmail.com`,
         phone: `055000${random}`,
         password: "123456789",
         address: "setif",
@@ -31,7 +31,9 @@ export default function () {
 
     const response = http.post(APIs.signup, body, { headers });
     check(response, {
-        "validate status code": (r) => r.status === 200,
-        "validate response body": (r) =>r.json().status === "success"
-    });
+        "validate status code": (r) => r.status === 201,
+        "validate response body": (r) =>{
+            console.log(r.body);
+            r.json().status === "success}"
+    }});
 }

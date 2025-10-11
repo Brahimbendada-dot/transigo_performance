@@ -1,0 +1,101 @@
+PS D:\k6_performance_transigo\category\get_sub_catby_cat_id> k6 run --env baseURL=http://api-transigo.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 83796   698.064351/s
+    checks_succeeded...: 100.00% 83796 out of 83796
+    checks_failed......: 0.00%   0 out of 83796
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=42.88ms min=27.21ms med=42.29ms max=313.97ms p(90)=45.14ms p(95)=46.18ms
+      { expected_response:true }...: avg=42.88ms min=27.21ms med=42.29ms max=313.97ms p(90)=45.14ms p(95)=46.18ms
+    http_req_failed................: 0.00%  0 out of 41898
+    http_reqs......................: 41898  349.032175/s
+
+    EXECUTION
+    iteration_duration.............: avg=42.96ms min=27.21ms med=42.32ms max=313.97ms p(90)=45.16ms p(95)=46.24ms
+    iterations.....................: 41898  349.032175/s
+    vus............................: 15     min=15         max=15
+    vus_max........................: 15     min=15         max=15
+
+    NETWORK
+    data_received..................: 31 MB  260 kB/s
+    data_sent......................: 4.8 MB 40 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (2m00.0s), 00/15 VUs, 41898 complete and 0 interrupted iterations                                                                                                                        
+default ✓ [======================================] 15 VUs  2m0s
+
+
+
+
+
+running (2m00.0s), 00/15 VUs, 41898 complete and 0 interrupted iterations                                                                                                                        
+default ✓ [======================================] 15 VUs  2m0s                                                                                                                                  
+PS D:\k6_performance_transigo\category\get_sub_catby_cat_id> k6 run --env baseURL=http://api-transigo.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 2226588 2854.568338/s
+    checks_succeeded...: 100.00% 2226588 out of 2226588
+    checks_failed......: 0.00%   0 out of 2226588
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=61.91ms min=28.54ms med=47.95ms max=669.24ms p(90)=91.57ms p(95)=132.55ms
+      { expected_response:true }...: avg=61.91ms min=28.54ms med=47.95ms max=669.24ms p(90)=91.57ms p(95)=132.55ms
+    http_req_failed................: 0.00%   0 out of 1113294
+    http_reqs......................: 1113294 1427.284169/s
+
+    EXECUTION
+    iteration_duration.............: avg=62ms    min=28.54ms med=47.99ms max=669.24ms p(90)=91.84ms p(95)=132.71ms
+    iterations.....................: 1113294 1427.284169/s
+    vus............................: 1       min=1            max=100
+    vus_max........................: 100     min=100          max=100
+
+    NETWORK
+    data_received..................: 829 MB  1.1 MB/s
+    data_sent......................: 127 MB  163 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (13m00.0s), 000/100 VUs, 1113294 complete and 0 interrupted iterations                                                                                                                   
+default ✓ [======================================] 000/100 VUs  13m0s            
