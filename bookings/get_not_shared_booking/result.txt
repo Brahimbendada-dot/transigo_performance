@@ -50,11 +50,103 @@ default ✓ [======================================] 15 VUs  2m0s
 
 
 
+PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env baseURL=http://model.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
 
 
 
+  █ TOTAL RESULTS
+
+    checks_total.......: 1340    10.941907/s
+    checks_succeeded...: 100.00% 1340 out of 1340
+    checks_failed......: 0.00%   0 out of 1340
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=1.35s min=38.74ms  med=1.36s max=2.84s p(90)=1.96s p(95)=2.19s
+      { expected_response:true }...: avg=1.35s min=38.74ms  med=1.36s max=2.84s p(90)=1.96s p(95)=2.19s
+    http_req_failed................: 0.00%  0 out of 1340
+    http_reqs......................: 1340   10.941907/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.71s min=306.66ms med=2.68s max=5.21s p(90)=2.99s p(95)=3.11s
+    iterations.....................: 670    5.470953/s
+    vus............................: 3      min=3         max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 1.3 MB 11 kB/s
+    data_sent......................: 306 kB 2.5 kB/s
 
 
+
+                                                                                                                                                                                                 
+running (2m02.5s), 00/15 VUs, 670 complete and 0 interrupted iterations                                                                                                                          
+default ✓ [======================================] 15 VUs  2m0s       
+
+
+
+PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env baseURL=http://model.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 37250   310.158969/s
+    checks_succeeded...: 100.00% 37250 out of 37250
+    checks_failed......: 0.00%   0 out of 37250
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=48.25ms min=19.8ms  med=47.4ms  max=332.26ms p(90)=58.2ms   p(95)=61.88ms
+      { expected_response:true }...: avg=48.25ms min=19.8ms  med=47.4ms  max=332.26ms p(90)=58.2ms   p(95)=61.88ms
+    http_req_failed................: 0.00%  0 out of 37250
+    http_reqs......................: 37250  310.158969/s
+
+    EXECUTION
+    iteration_duration.............: avg=96.67ms min=65.41ms med=93.08ms max=381.24ms p(90)=113.24ms p(95)=118.08ms
+    iterations.....................: 18625  155.079484/s
+    vus............................: 15     min=15         max=15
+    vus_max........................: 15     min=15         max=15
+
+    NETWORK
+    data_received..................: 49 MB  409 kB/s
+    data_sent......................: 8.5 MB 70 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (2m00.1s), 00/15 VUs, 18625 complete and 0 interrupted iterations                                                                                                                        
+default ✓ [======================================] 15 VUs  2m0s           
 
 
 
@@ -106,3 +198,147 @@ PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env base
                                                                                                                                                                                                  
 running (13m07.2s), 000/100 VUs, 2131 complete and 5 interrupted iterations                                                                                                                      
 default ✓ [======================================] 000/100 VUs  13m0s        
+
+
+
+PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env baseURL=http://model.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 8674    11.120148/s
+    checks_succeeded...: 100.00% 8674 out of 8674
+    checks_failed......: 0.00%   0 out of 8674
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=8.02s  min=37.1ms  med=8.32s  max=13.11s p(90)=10.8s p(95)=11.23s
+      { expected_response:true }...: avg=8.02s  min=37.1ms  med=8.32s  max=13.11s p(90)=10.8s p(95)=11.23s
+    http_req_failed................: 0.00%  0 out of 8674
+    http_reqs......................: 8674   11.120148/s
+
+    EXECUTION
+    iteration_duration.............: avg=16.04s min=246.1ms med=17.64s max=21.03s p(90)=18.9s p(95)=19.29s
+    iterations.....................: 4337   5.560074/s
+    vus............................: 1      min=1         max=100
+    vus_max........................: 100    min=100       max=100
+
+    NETWORK
+    data_received..................: 8.5 MB 11 kB/s
+    data_sent......................: 2.0 MB 2.5 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (13m00.0s), 000/100 VUs, 4337 complete and 0 interrupted iterations                                                                                                                      
+default ✓ [======================================] 000/100 VUs  13m0s  
+
+
+PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env baseURL=http://model.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 320182  410.448889/s
+    checks_succeeded...: 100.00% 320182 out of 320182
+    checks_failed......: 0.00%   0 out of 320182
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=215.56ms min=13.61ms med=229.82ms max=789.95ms p(90)=263.66ms p(95)=273.79ms
+      { expected_response:true }...: avg=215.56ms min=13.61ms med=229.82ms max=789.95ms p(90)=263.66ms p(95)=273.79ms
+    http_req_failed................: 0.00%  0 out of 320182
+    http_reqs......................: 320182 410.448889/s
+
+    EXECUTION
+    iteration_duration.............: avg=431.27ms min=63.88ms med=463.12ms max=1s       p(90)=506.91ms p(95)=521.08ms
+    iterations.....................: 160091 205.224445/s
+    vus............................: 1      min=1           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 525 MB 673 kB/s
+    data_sent......................: 73 MB  94 kB/s
+
+
+
+                                                                                                                                                                                                 
+running (13m00.1s), 000/100 VUs, 160091 complete and 0 interrupted iterations                                                                                                                    
+default ✓ [======================================] 000/100 VUs  13m0s     
+
+
+
+
+PS D:\k6_performance_transigo\bookings\get_not_shared_booking> k6 run --env baseURL=http://model.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h0m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h0m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 1494432 415.11257/s
+    checks_succeeded...: 100.00% 1494432 out of 1494432
+    checks_failed......: 0.00%   0 out of 1494432
+
+    ✓ status is 200
+    ✓ response status is success
+
+    HTTP
+    http_req_duration..............: avg=1.19s min=12.49ms med=1.15s max=2.82s p(90)=2.1s  p(95)=2.26s
+      { expected_response:true }...: avg=1.19s min=12.49ms med=1.15s max=2.82s p(90)=2.1s  p(95)=2.26s
+    http_req_failed................: 0.00%   0 out of 1494432
+    http_reqs......................: 1494432 415.11257/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.38s min=60.73ms med=2.31s max=5.37s p(90)=4.21s p(95)=4.54s
+    iterations.....................: 747216  207.556285/s
+    vus............................: 1       min=1            max=1000
+    vus_max........................: 1000    min=1000         max=1000
+
+    NETWORK
+    data_received..................: 2.0 GB  548 kB/s
+    data_sent......................: 339 MB  94 kB/s
+

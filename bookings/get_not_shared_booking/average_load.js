@@ -20,11 +20,11 @@ export let options = {
 export default function () {
   // Send as multipart/form-data
   const body ={
-    "driverId": 5,
-    "maxDistanceStart": 500,
-    "rayon": 500,
-    "finalSimilarity": 0.0
-  };
+  "driverId": 5,
+  "maxDriveDistance": 1500,
+  "rayon": 150
+};
+
 
   const headers = {
         "Content-Type": "application/json"

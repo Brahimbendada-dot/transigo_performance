@@ -7,17 +7,28 @@ import { check } from "k6";
 const baseURL=__ENV.baseURL
 
 export const  APIs={
-    login:`${baseURL}/api/v1/sharedTrip`,    
+    booking:`${baseURL}/api/v1/sharedTrip`,    
 }
+
+
+export let options = {
+   stages: [
+        { duration: '5m', target: 50 },   // Warm-up
+        { duration: '5m', target: 200 },  // Moderate load
+        { duration: '20m', target: 500 },  // Heavy load
+        { duration: '28m', target: 1000 }, // Peak stress
+        { duration: '2m', target: 0 },    // Cooldown
+      ],
+};
+
 
 export default function () {
   // Send as multipart/form-data
   const body ={
-    "driverId": 5,
-    "maxDistanceStart": 500,
-    "rayon": 500,
-    "finalSimilarity": 0.0
-  };
+  "driverId": 5,
+  "maxDriveDistance": 1000,
+  "rayon": 100
+}
 
   const headers = {
         "Content-Type": "application/json"
