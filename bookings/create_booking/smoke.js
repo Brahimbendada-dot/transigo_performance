@@ -30,14 +30,13 @@ export default function () {
     locationDestinationLong: "-0.6308",
     description: "Shipment of electronic equipment to Oran branch",
     capacity: "4.5",
-    invoice: "No, I don’t have.",
+    invoice: "Yes, I have.",
     methodepayment: "edahabia",
     category: "truck",
     subCategory: "medium truck",
     shipmentCapacity: "2.5",
     timepayment: "Departure",
     isSharesTrip: 0,
-    
     // ✅ Attach files using http.file()
     pictureShipment: http.file(shipment, "shipment.PNG","image/png"),
     pictureInvoice: http.file(invoice, "invoice.PNG","image/png"),
