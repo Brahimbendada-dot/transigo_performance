@@ -1,0 +1,156 @@
+                                                                                                                                                                                              
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/photon]
+└─$ k6 run --env baseURL=https://photon.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 56594   471.377634/s
+    checks_succeeded...: 100.00% 56594 out of 56594
+    checks_failed......: 0.00%   0 out of 56594
+
+    ✓ validate status code
+    ✓ validate response body
+
+    HTTP
+    http_req_duration..............: avg=58.98ms min=18.73ms med=48.12ms max=592.61ms p(90)=93.93ms p(95)=123.93ms
+      { expected_response:true }...: avg=58.98ms min=18.73ms med=48.12ms max=592.61ms p(90)=93.93ms p(95)=123.93ms
+    http_req_failed................: 0.00%  0 out of 28297
+    http_reqs......................: 28297  235.688817/s
+
+    EXECUTION
+    iteration_duration.............: avg=63.55ms min=19.38ms med=48.93ms max=27.76s   p(90)=95.08ms p(95)=125.7ms 
+    iterations.....................: 28297  235.688817/s
+    vus............................: 15     min=15         max=15
+    vus_max........................: 15     min=15         max=15
+
+    NETWORK
+    data_received..................: 65 MB  542 kB/s
+    data_sent......................: 3.4 MB 29 kB/s
+
+
+
+
+running (2m00.1s), 00/15 VUs, 28297 complete and 0 interrupted iterations
+default ✓ [======================================] 15 VUs  2m0s
+                                                                  
+
+
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/photon]
+└─$ k6 run --env baseURL=https://photon.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+   █ TOTAL RESULTS 
+
+    checks_total.......: 454114 569.273875/s
+    checks_succeeded...: 99.93% 453830 out of 454114
+    checks_failed......: 0.06%  284 out of 454114
+
+    ✗ validate status code
+      ↳  99% — ✓ 226915 / ✗ 142
+    ✗ validate response body
+      ↳  99% — ✓ 226915 / ✗ 142
+
+    HTTP
+    http_req_duration..............: avg=292.25ms min=0s      med=228.99ms max=1m0s  p(90)=372.72ms p(95)=447.8ms 
+      { expected_response:true }...: avg=265.19ms min=19.31ms med=228.97ms max=58.3s p(90)=372.41ms p(95)=446.76ms
+    http_req_failed................: 0.06%  142 out of 227057
+    http_reqs......................: 227057 284.636938/s
+
+    EXECUTION
+    iteration_duration.............: avg=304.65ms min=20.06ms med=229.86ms max=1m0s  p(90)=374.49ms p(95)=450.7ms 
+    iterations.....................: 227057 284.636938/s
+    vus............................: 2      min=1             max=100
+    vus_max........................: 100    min=100           max=100
+
+    NETWORK
+    data_received..................: 522 MB 654 kB/s
+    data_sent......................: 28 MB  35 kB/s
+
+
+
+
+running (13m17.7s), 000/100 VUs, 227057 complete and 1 interrupted iterations
+default ✓ [======================================] 000/100 VUs  13m0s                                                                
+
+
+
+
+
+
+
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/photon]
+└─$ k6 run --env baseURL=https://photon.transigodz.com stress.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 1h7m30s max duration (incl. graceful stop):
+              * default: Up to 1000 looping VUs for 1h7m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 2433764 605.408983/s
+    checks_succeeded...: 98.67%  2401602 out of 2433764
+    checks_failed......: 1.32%   32162 out of 2433764
+
+    ✗ validate status code
+      ↳  98% — ✓ 1200801 / ✗ 16081
+    ✗ validate response body
+      ↳  98% — ✓ 1200801 / ✗ 16081
+
+    HTTP
+    http_req_duration..............: avg=1.44s min=0s      med=1.06s max=1m0s   p(90)=2.2s  p(95)=2.64s
+      { expected_response:true }...: avg=1.29s min=22.26ms med=1.07s max=59.69s p(90)=2.18s p(95)=2.58s
+    http_req_failed................: 1.32%   16081 out of 1216882
+    http_reqs......................: 1216882 302.704491/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.57s min=5.66ms  med=1.08s max=1m0s   p(90)=2.28s p(95)=3.13s
+    iterations.....................: 1216882 302.704491/s
+    vus............................: 3       min=1                max=1000
+    vus_max........................: 1000    min=1000             max=1000
+
+    NETWORK
+    data_received..................: 2.9 GB  727 kB/s
+    data_sent......................: 213 MB  53 kB/s
+
+
+
+
+running (1h07m00.0s), 0000/1000 VUs, 1216882 complete and 22 interrupted iterations
+default ✓ [======================================] 0000/1000 VUs  1h7m0s
+                                                                                   

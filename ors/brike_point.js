@@ -7,7 +7,7 @@ import { check } from "k6";
 const baseURL=__ENV.baseURL
 
 export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
+    photon:`${baseURL}/api/?limit=5&q=setif`,    
 }
 
 
@@ -23,20 +23,10 @@ export let options = {
 
 
 export default function () {
-    const body = JSON.stringify({
-        email:"brahimbendada024@gmail.com",
-        password:"123456789",
-        phoneToken: "smoke_test_token"
-    });
-
-    const headers = {
-        "Content-Type": "application/json"
-    };
-
-    const response = http.post(APIs.login, body, { headers });
+    const response = http.get(APIs.photon);
 
     check(response, {
-        "validate status code": (r) => r.status === 200,
+        "validate status code": (r) => r.type === "FeatureCollection",
         "validate response body": (r) => r.json("status") === "success"
     });
 }

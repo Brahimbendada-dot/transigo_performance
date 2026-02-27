@@ -1,0 +1,48 @@
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/authentifications/login]
+└─$ k6 run --env baseURL=https://api.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 13822  17.720197/s
+    checks_succeeded...: 99.33% 13730 out of 13822
+    checks_failed......: 0.66%  92 out of 13822
+
+    ✗ validate status code
+      ↳  99% — ✓ 6865 / ✗ 46
+    ✗ validate response body
+      ↳  99% — ✓ 6865 / ✗ 46
+
+    HTTP
+    http_req_duration..............: avg=9.97s  min=0s       med=10.72s max=1m0s   p(90)=11.47s p(95)=11.6s 
+      { expected_response:true }...: avg=9.73s  min=150.23ms med=10.71s max=48.33s p(90)=11.46s p(95)=11.59s
+    http_req_failed................: 0.66%  46 out of 6911
+    http_reqs......................: 6911   8.860098/s
+
+    EXECUTION
+    iteration_duration.............: avg=10.03s min=151.13ms med=10.73s max=1m0s   p(90)=11.48s p(95)=11.61s
+    iterations.....................: 6911   8.860098/s
+    vus............................: 1      min=1          max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 11 MB  14 kB/s
+    data_sent......................: 2.1 MB 2.7 kB/s
+
+
+
+
+running (13m00.0s), 000/100 VUs, 6911 complete and 0 interrupted iterations
+default ✓ [======================================] 000/100 VUs  13m0s

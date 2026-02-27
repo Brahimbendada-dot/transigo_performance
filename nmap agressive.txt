@@ -1,0 +1,115 @@
+┌──(sysadmin㉿kali)-[~]
+└─$ nmap -A transigodz.com
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-02-27 03:25 CET
+Nmap scan report for transigodz.com (197.140.142.236)
+Host is up (0.14s latency).
+Not shown: 990 closed tcp ports (reset)
+PORT      STATE    SERVICE         VERSION
+22/tcp    open     tcpwrapped
+| ssh-hostkey: 
+|_  256 2f:47:36:28:b8:18:a3:a8:ab:fa:41:a6:18:2e:1b:a4 (ECDSA)
+80/tcp    open     tcpwrapped
+|_http-server-header: nginx/1.29.5
+443/tcp   open     ssl/http        nginx 1.29.5
+|_http-title: 400 The plain HTTP request was sent to HTTPS port
+|_http-server-header: nginx/1.29.5
+| ssl-cert: Subject: commonName=transigodz.com
+| Subject Alternative Name: DNS:api.transigodz.com, DNS:dashboard.transigodz.com, DNS:model.transigodz.com, DNS:ors.transigodz.com, DNS:photon.transigodz.com, DNS:transigodz.com
+| Not valid before: 2026-02-25T01:16:11
+|_Not valid after:  2026-05-26T01:16:10
+1594/tcp  filtered sixtrak
+3000/tcp  open     tcpwrapped
+4000/tcp  open     http            Gunicorn
+|_http-title: 404 Not Found
+|_http-server-header: gunicorn
+5555/tcp  open     freeciv?
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     HTTP/1.1 400 Bad Request
+|_    Connection: close
+8082/tcp  open     http            Apache Tomcat (language: en)
+|_http-title: HTTP Status 404 \xE2\x80\x93 Not Found
+10009/tcp filtered swdtp-sv
+32777/tcp filtered sometimes-rpc17
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5555-TCP:V=7.95%I=7%D=2/27%Time=69A10241%P=x86_64-pc-linux-gnu%r(DN
+SF:SVersionBindReqTCP,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection
+SF::\x20close\r\n\r\n");
+Device type: firewall|general purpose
+Running (JUST GUESSING): Fortinet embedded (92%), Microsoft Windows 10|11|2016 (86%)
+OS CPE: cpe:/h:fortinet:fortigate_100d cpe:/o:microsoft:windows_10 cpe:/o:microsoft:windows_11 cpe:/o:microsoft:windows_server_2016
+Aggressive OS guesses: Fortinet FortiGate 100D firewall (92%), Fortinet FortiGate-50B or 310B firewall (87%), Microsoft Windows 10 - 11 (86%), Microsoft Windows Server 2016 (86%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 12 hops
+
+TRACEROUTE (using port 3389/tcp)
+HOP RTT       ADDRESS
+1   6.47 ms   192.168.100.1
+2   461.73 ms 10.104.119.101
+3   597.89 ms 10.104.119.5
+4   ... 5
+6   26.93 ms  10.31.31.23
+7   20.96 ms  10.16.16.23
+8   27.31 ms  172.29.23.78
+9   ...
+10  23.58 ms  172.17.216.7
+11  ...
+12  22.49 ms  197.140.142.236
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 564.72 seconds
+
+
+
+
+
+-------------------------------------------------------------------- ports of all services arr hiden 
+
+┌──(sysadmin㉿kali)-[~]
+└─$ nmap -A transigodz.com
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-02-27 04:00 CET
+Nmap scan report for transigodz.com (197.140.142.236)
+Host is up (0.070s latency).
+Not shown: 991 closed tcp ports (reset)
+PORT     STATE    SERVICE        VERSION
+22/tcp   open     ssh            OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 2f:47:36:28:b8:18:a3:a8:ab:fa:41:a6:18:2e:1b:a4 (ECDSA)
+|_  256 d3:d6:e9:4a:b2:c3:96:28:e4:7f:d8:e4:4b:20:6f:e3 (ED25519)
+80/tcp   open     http           nginx 1.29.5
+|_http-server-header: nginx/1.29.5
+|_http-title: Did not follow redirect to https://transigodz.com/
+443/tcp  open     ssl/http       nginx 1.29.5
+|_http-title: 403 Forbidden
+| ssl-cert: Subject: commonName=transigodz.com
+| Subject Alternative Name: DNS:api.transigodz.com, DNS:dashboard.transigodz.com, DNS:model.transigodz.com, DNS:ors.transigodz.com, DNS:photon.transigodz.com, DNS:transigodz.com
+| Not valid before: 2026-02-25T01:16:11
+|_Not valid after:  2026-05-26T01:16:10
+|_ssl-date: TLS randomness does not represent time
+|_http-server-header: nginx/1.29.5
+777/tcp  filtered multiling-http
+1072/tcp filtered cardax
+1095/tcp filtered nicelink
+1097/tcp filtered sunclustermgr
+4321/tcp filtered rwhois
+7200/tcp filtered fodms
+Device type: general purpose
+Running (JUST GUESSING): Linux 4.X (85%)
+OS CPE: cpe:/o:linux:linux_kernel:4
+Aggressive OS guesses: Linux 4.19 - 5.15 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 11 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 5900/tcp)
+HOP RTT       ADDRESS
+1   5.73 ms   192.168.100.1
+2   20.82 ms  10.104.119.101
+3   84.54 ms  10.104.119.17
+4   ... 5
+6   25.84 ms  10.31.131.23
+7   25.77 ms  172.28.231.26
+8   25.80 ms  172.17.122.14
+9   25.61 ms  172.17.216.7
+10  21.24 ms  172.17.216.7
+11  134.32 ms 197.140.142.236
