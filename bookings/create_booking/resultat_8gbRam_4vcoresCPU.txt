@@ -1,0 +1,153 @@
+                                                                                                                                                                                              
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/bookings/create_booking]
+└─$ k6 run --env baseURL=http://api.transigodz.com smoke.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: smoke.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 15 looping VUs for 2m0s (gracefulStop: 30s)
+
+WARN[0055] Request Failed                                error="Post \"http://api.transigodz.com/api/v1/booking\": dial: i/o timeout"
+ERRO[0055] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at response status is success (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:50:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:48:8(68))  executor=constant-vus scenario=default source=stacktrace
+WARN[0055] Request Failed                                error="Post \"http://api.transigodz.com/api/v1/booking\": dial: i/o timeout"
+ERRO[0055] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at response status is success (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:50:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:48:8(68))  executor=constant-vus scenario=default source=stacktrace
+WARN[0073] Request Failed                                error="Post \"http://api.transigodz.com/api/v1/booking\": dial: i/o timeout"
+ERRO[0073] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at response status is success (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:50:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:48:8(68))  executor=constant-vus scenario=default source=stacktrace
+WARN[0081] Request Failed                                error="Post \"http://api.transigodz.com/api/v1/booking\": dial: i/o timeout"
+ERRO[0081] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at response status is success (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:50:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:48:8(68))  executor=constant-vus scenario=default source=stacktrace
+WARN[0082] Request Failed                                error="Post \"http://api.transigodz.com/api/v1/booking\": dial: i/o timeout"
+ERRO[0082] GoError: the body is null so we can't transform it to JSON - this likely was because of a request error getting the response
+running at reflect.methodValueCall (native)
+default at response status is success (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:50:48(4))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/sysadmin/Downloads/transigo_performance/bookings/create_booking/smoke.js:48:8(68))  executor=constant-vus scenario=default source=stacktrace
+
+running (1m29.5s), 15/15 VUs, 358 complete and 0 interrupted iterations
+default   [===========================>----------] 15 VUs  1m29.5s/2m0s
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1040   6.933276/s
+    checks_succeeded...: 96.92% 1008 out of 1040
+    checks_failed......: 3.07%  32 out of 1040
+
+    ✗ status is 201
+      ↳  96% — ✓ 504 / ✗ 16
+    ✗ response status is success
+      ↳  96% — ✓ 504 / ✗ 16
+
+    HTTP
+    http_req_duration..............: avg=558.1ms  min=0s      med=52.32ms max=18.64s p(90)=1.23s p(95)=2.21s 
+      { expected_response:true }...: avg=566.95ms min=50.14ms med=56.83ms max=18.64s p(90)=1.24s p(95)=2.23s 
+    http_req_failed................: 1.56%  16 out of 1025
+    http_reqs......................: 1025   6.833277/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.92s    min=183.3ms med=1.53s   max=1m0s   p(90)=8.74s p(95)=27.88s
+    iterations.....................: 520    3.466638/s
+    vus............................: 1      min=1          max=15
+    vus_max........................: 15     min=15         max=15
+
+    NETWORK
+    data_received..................: 3.7 MB 25 kB/s
+    data_sent......................: 59 MB  395 kB/s
+
+
+
+
+running (2m30.0s), 00/15 VUs, 520 complete and 1 interrupted iterations
+default ✓ [======================================] 15 VUs  2m0s
+
+
+                                                                                                                                                                                              
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/bookings/create_booking]
+└─$ k6 run --env baseURL=http://api.transigodz.com average_load.js
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: average_load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 13m30s max duration (incl. graceful stop):
+              * default: Up to 100 looping VUs for 13m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+  █ TOTAL RESULTS 
+
+    checks_total.......: 10112  12.537232/s
+    checks_succeeded...: 84.21% 8516 out of 10112
+    checks_failed......: 15.78% 1596 out of 10112
+
+    ✗ status is 200
+      ↳  84% — ✓ 4257 / ✗ 799
+    ✗ response status is success
+      ↳  84% — ✓ 4259 / ✗ 797
+
+    HTTP
+    http_req_duration..............: avg=2.7s   min=0s      med=51.62ms max=58.48s p(90)=6.01s p(95)=11.54s
+      { expected_response:true }...: avg=2.1s   min=50.08ms med=52.45ms max=56.63s p(90)=5.63s p(95)=9.63s 
+    http_req_failed................: 8.42%  799 out of 9480
+    http_reqs......................: 9480   11.753655/s
+
+    EXECUTION
+    iteration_duration.............: avg=13.79s min=1.11s   med=8.19s   max=1m0s   p(90)=30s   p(95)=36.73s
+    iterations.....................: 5056   6.268616/s
+    vus............................: 1      min=1           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 31 MB  39 kB/s
+    data_sent......................: 471 MB 584 kB/s
+
+
+
+
+running (13m26.6s), 000/100 VUs, 5056 complete and 11 interrupted iterations
+default ✓ [======================================] 000/100 VUs  13m0s
+
+
+
+
+                                                                                                                                                                                              
+┌──(sysadmin㉿kali)-[~/Downloads/transigo_performance/bookings/create_booking]
+└─$ k6 run --env baseURL=http://api.transigodz.com stress.js      
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 500 max VUs, 37m30s max duration (incl. graceful stop):
+              * default: Up to 500 looping VUs for 37m0s over 4 stages (gracefulRampDown: 30s, gracefulStop: 30s)

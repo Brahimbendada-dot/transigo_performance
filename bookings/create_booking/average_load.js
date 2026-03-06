@@ -55,8 +55,7 @@ export default function () {
   const response = http.post(APIs.booking, formData);
 
   check(response, {
-    "body": (r) => console.log(r.body),
-    "status is 201": (r) => r.status === 201,
+    "status is 200": (r) => r.status === 200,
     "response status is success": (r) => r.json("status") === "success",
   });
 }
