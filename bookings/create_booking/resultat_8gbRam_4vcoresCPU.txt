@@ -151,3 +151,35 @@ default ✓ [======================================] 000/100 VUs  13m0s
 
      scenarios: (100.00%) 1 scenario, 500 max VUs, 37m30s max duration (incl. graceful stop):
               * default: Up to 500 looping VUs for 37m0s over 4 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+█ TOTAL RESULTS 
+
+    checks_total.......: 73932  32.87266/s
+    checks_succeeded...: 66.05% 48837 out of 73932
+    checks_failed......: 33.94% 25095 out of 73932
+
+    ✗ status is 200
+      ↳  66% — ✓ 24418 / ✗ 12548
+    ✗ response status is success
+      ↳  66% — ✓ 24419 / ✗ 12547
+
+    HTTP
+    http_req_duration..............: avg=1.34s   min=0s       med=51.37ms max=59.67s p(90)=1.68s p(95)=3.26s
+      { expected_response:true }...: avg=888.5ms min=42.06ms  med=52.21ms max=57.79s p(90)=1.81s p(95)=3.1s 
+    http_req_failed................: 19.81% 12548 out of 63330
+    http_reqs......................: 63330  28.158653/s
+
+    EXECUTION
+    iteration_duration.............: avg=14.56s  min=186.75ms med=5.58s   max=1m0s   p(90)=30s   p(95)=31.4s
+    iterations.....................: 36966  16.43633/s
+    vus............................: 2      min=1              max=500
+    vus_max........................: 500    min=500            max=500
+
+    NETWORK
+    data_received..................: 182 MB 81 kB/s
+    data_sent......................: 2.8 GB 1.2 MB/s
+
+
+
+
+running (37m29.0s), 000/500 VUs, 36966 complete and 24 interrupted iterations
+default ✓ [======================================] 000/500 VUs  37m0s

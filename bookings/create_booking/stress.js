@@ -1,14 +1,15 @@
+
+
+
 import http from "k6/http";
 import { check } from "k6";
 
+const baseURL = __ENV.baseURL;
 
+export const APIs = {
+  booking: `${baseURL}/api/v1/booking`,
+};
 
-
-const baseURL=__ENV.baseURL
-
-export const  APIs={
-    login:`${baseURL}/api/v1/authentification/login`,    
-}
 
 export let options = {
    stages: [
@@ -22,21 +23,45 @@ export let options = {
 
 
 
+// Load files (binary mode)
+const invoice = open("./invoice.PNG", "b");
+const shipment = open("./shipment.PNG", "b");
+
 export default function () {
-    const body = JSON.stringify({
-        phone: "+213699938225",
-        password: "123456789",
-        phoneToken: "smoke_test_token"
-    });
+  // Send as multipart/form-data
+  const formData = {
+    clientId: "2",
+    date: "2025-10-07 10:30:00",
+    distance: "125.6",
+    locationStartName: "Algiers Central Warehouse",
+    locationDestinationName: "Oran Industrial Zone",
+    locationStartLat: "36.7538",
+    locationStartLong: "3.0588",
+    locationDestinationLat: "35.6971",
+    locationDestinationLong: "-0.6308",
+    description: "Shipment of electronic equipment to Oran branch",
+    capacity: "4.5",
+    invoice: "Yes, I have.",
+    methodepayment: "edahabia",
+    category: "truck",
+    subCategory: "medium truck",
+    responsibleDeliveringName: "tayeb",
+    responsibleReceivingName: "ibrahim",
+    shipmentCapacity: "2.5",
+    timepayment: "Departure",
+    isSharesTrip: 0,
+    
+    // ✅ Attach files using http.file()
+    pictureShipment: http.file(shipment, "shipment.PNG","image/png"),
+    pictureInvoice: http.file(invoice, "invoice.PNG","image/png"),
+  };
 
-    const headers = {
-        "Content-Type": "application/json"
-    };
+  // No need to manually set Content-Type — k6 handles it automatically
+  const response = http.post(APIs.booking, formData);
 
-    const response = http.post(APIs.login, body, { headers });
-
-    check(response, {
-        "validate status code": (r) => r.status === 200,
-        "validate response body": (r) => r.json("status") === "success"
-    });
+  check(response, {
+    "status is 200": (r) => r.status === 200,
+    "response status is success": (r) => r.json("status") === "success",
+  });
 }
+
