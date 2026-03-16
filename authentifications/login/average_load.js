@@ -24,7 +24,7 @@ export let options = {
 
 export default function () {
     const body = JSON.stringify({
-        email:"brahimbendada024@gmail.com",
+        email:"ttayeb769@gmail.com",
         password:"123456789",
         phoneToken: "smoke_test_token"
     });

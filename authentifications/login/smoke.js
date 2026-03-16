@@ -21,7 +21,7 @@ export let options = {
 
 export default function () {
     const body = JSON.stringify({
-        phone: "+213699938225",
+        email:"ttayeb769@gmail.com",
         password: "123456789",
         phoneToken: "smoke_test_token"
     });
@@ -33,6 +33,7 @@ export default function () {
     const response = http.post(APIs.login, body, { headers });
 
     check(response, {
+        "validate status code": (r) =>console.log(r),
         "validate status code": (r) => r.status === 200,
         "validate response body": (r) => r.json("status") === "success"
     });
