@@ -9,7 +9,7 @@ export const APIs = {
 
 export let options = {
   vus: 15,
-  duration: "2m",
+  duration: "3m",
 };
 
 // Load files (binary mode)
@@ -46,7 +46,7 @@ export default function () {
   const response = http.post(APIs.booking, formData);
 
   check(response, {
-    "status is 200": (r) => r.status === 200,
+    "status is 201": (r) => r.status === 201,
     "response status is success": (r) => r.json("status") === "success",
   });
 }

@@ -4,12 +4,12 @@ import { check } from "k6";
 const baseURL = __ENV.baseURL;
 
 export const APIs = {
-  booking: `${baseURL}/api/v1/sharedTrip`,
+  booking: `${baseURL}/api/v1/driverhome/`,
 };
 
 export let options = {
   vus: 15,
-  duration: "2m",
+  duration: "3m",
 };
 
 
@@ -23,9 +23,9 @@ export default function () {
   // };
 
     const body ={
-  "driverId": 5,
+  "driverId": 1,
   "maxDriveDistance": 1000,
-  "rayon": 100
+  "rayon": 400
 };
   const headers = {
         "Content-Type": "application/json"

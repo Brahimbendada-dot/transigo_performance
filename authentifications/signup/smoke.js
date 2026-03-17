@@ -10,19 +10,18 @@ export let options = {
 const baseURL = __ENV.baseURL
 
 export const APIs = {
-    signup: `${baseURL}/api/v1/authentification/signup`,
+    signup: `${baseURL}/api/v1/authentification/signup/client`,
 }
 
 export default function () {
     const random = Math.floor(Math.random() * 1000000);
     const body = JSON.stringify({
         firstname: "grafana",
-        lastname: "k6",
+        lastname: "k6_test",
         email: `${random}user@gmail.com`,
         phone: `055000${random}`,
         password: "123456789",
         address: "setif",
-        roleId: "2"
     });
 
     const headers = {

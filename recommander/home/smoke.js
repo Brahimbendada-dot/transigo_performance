@@ -14,14 +14,14 @@ export const  APIs={
 
 export let options = {
     vus: 15,
-    duration: '3m',
+    duration: '2m',
 };
 
 
 
 export default function () {
     const body = JSON.stringify({
-        email:"ttayeb769@gmail.com",
+        phone: "+213699938225",
         password: "123456789",
         phoneToken: "smoke_test_token"
     });
@@ -33,7 +33,6 @@ export default function () {
     const response = http.post(APIs.login, body, { headers });
 
     check(response, {
-        "validate status code": (r) =>console.log(r),
         "validate status code": (r) => r.status === 200,
         "validate response body": (r) => r.json("status") === "success"
     });

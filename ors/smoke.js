@@ -18,7 +18,7 @@ export const  APIs={
 
 export let options = {
     vus: 15,
-    duration: '2m',
+    duration: '3m',
 };
 
 
